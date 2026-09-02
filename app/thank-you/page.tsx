@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Check, MessageCircle, PlayCircle } from 'lucide-react';
+import { Check, HeartHandshake, MessageCircle, Quote } from 'lucide-react';
 import { Header } from '@/components/Header';
 
 export const metadata: Metadata = {
@@ -28,13 +28,21 @@ export default function ThankYouPage() {
       </section>
       <section className="px-4 pb-20 sm:pb-28">
         <div className="page-shell grid gap-6 lg:grid-cols-[1.1fr_.9fr]">
-          <article className="rounded-[2rem] bg-[#2c241d] p-7 text-[#fffaf2] sm:p-10">
-            <div className="flex items-center gap-3 text-[#d8b987]"><PlayCircle aria-hidden="true" className="size-6" /><p className="eyebrow !text-[#d8b987]">Thank You Video</p></div>
-            <div className="mt-7 space-y-4 text-sm leading-7 text-[#e5d9ce] sm:text-base">
-              <p>Hi, thank you so much for booking your free consultation with us.</p>
-              <p>I know planning a wedding comes with a lot of decisions, and honestly, a lot of uncertainty — especially around decor and budget. That&apos;s exactly why we do these calls.</p>
-              <p>We&apos;ll reach out to you on WhatsApp shortly to confirm a time that works for you. On the call, we&apos;ll talk through your venue, your ideas, and your budget — no pressure, no obligation.</p>
-              <p className="font-semibold text-[#f4dfc0]">Looking forward to speaking with you soon.</p>
+          <article className="relative overflow-hidden rounded-[2rem] border border-[#dfc8aa] bg-[linear-gradient(145deg,#fffdf9_0%,#f8ecdf_100%)] p-7 shadow-[0_22px_70px_rgba(94,64,38,.09)] sm:p-10">
+            <Quote aria-hidden="true" className="absolute -right-5 -top-7 size-32 rotate-12 text-[#c7a77d]/15 sm:size-40" />
+            <div className="relative">
+              <span className="flex size-12 items-center justify-center rounded-full bg-[#2c241d] text-[#f0d4aa] shadow-md">
+                <HeartHandshake aria-hidden="true" className="size-5" />
+              </span>
+              <p className="eyebrow mt-6">A Personal Note</p>
+              <h2 className="font-heading mt-3 max-w-xl text-3xl font-semibold leading-tight text-[#2c241d] sm:text-4xl">
+                Hi, thank you so much for booking your free consultation with us.
+              </h2>
+              <div className="mt-7 space-y-5 border-l-2 border-[#c9a777] pl-5 text-sm leading-7 text-[#665446] sm:pl-7 sm:text-base">
+                <p>I know planning a wedding comes with a lot of decisions, and honestly, a lot of uncertainty — especially around decor and budget. That&apos;s exactly why we do these calls.</p>
+                <p>We&apos;ll reach out to you on WhatsApp shortly to confirm a time that works for you. On the call, we&apos;ll talk through your venue, your ideas, and your budget — no pressure, no obligation.</p>
+                <p className="font-semibold text-[#5d3f27]">Looking forward to speaking with you soon.</p>
+              </div>
             </div>
           </article>
           <article className="rounded-[2rem] border bg-white p-7 sm:p-10">
