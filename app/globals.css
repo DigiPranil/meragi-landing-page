@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --font-sans: var(--font-manrope);
+  --font-heading: var(--font-cormorant);
+}
+
+:root {
+  --background: #fffdf9;
+  --foreground: #2c241d;
+  --card: #ffffff;
+  --card-foreground: #2c241d;
+  --primary: #9a7443;
+  --primary-foreground: #fffdf8;
+  --secondary: #f3e6d8;
+  --secondary-foreground: #5a412a;
+  --muted: #f8f3ec;
+  --muted-foreground: #756a5f;
+  --border: #e7d7c3;
+  --input: #ddcbb4;
+  --ring: #b68a54;
+  --destructive: #a53a32;
+}
+
+* { box-sizing: border-box; border-color: var(--border); }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+button, input, textarea { font: inherit; }
+::selection { background: #e5c9aa; color: #2c241d; }
+
+.font-heading { font-family: var(--font-cormorant), Georgia, serif; }
+.page-shell { width: min(100% - 2rem, 74rem); margin-inline: auto; }
+.eyebrow { letter-spacing: .2em; text-transform: uppercase; font-size: .72rem; font-weight: 700; color: var(--primary); }
+.hero-glow {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(236, 192, 160, .28), transparent 26rem),
+    radial-gradient(circle at 82% 28%, rgba(201, 170, 117, .2), transparent 24rem),
+    linear-gradient(180deg, #fffdf9 0%, #faf3ea 100%);
+}
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .35;
+  background-image: radial-gradient(#9a7443 0.6px, transparent 0.6px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

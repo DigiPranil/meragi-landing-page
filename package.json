@@ -1,0 +1,31 @@
+{
+  "name": "meragi-decor-consultation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "lucide-react": "1.31.0",
+    "next": "16.3.4",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@oxlint/binding-win32-x64-msvc": "^1.76.0",
+    "@tailwindcss/oxide-win32-x64-msvc": "^4.2.1",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "csstype": "^3.2.3",
+    "lightningcss-win32-x64-msvc": "^1.31.1",
+    "oxlint": "1.76.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3"
+  }
+}
