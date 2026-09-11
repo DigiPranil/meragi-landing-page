@@ -19,6 +19,59 @@
   --font-heading: var(--font-cormorant);
 }
 
+/* Visual integration for the native Flodesk embed. Functional selectors,
+   fields, attributes, submission behavior, and scripts remain untouched. */
+.flodesk-shell [data-ff-el='root'] .ff-6aa3d3ca17d08757cc6d8a16__container {
+  max-width: none !important;
+  background: transparent !important;
+}
+
+.flodesk-shell [data-ff-el='root'] .ff-6aa3d3ca17d08757cc6d8a16__form {
+  padding: 2.25rem !important;
+}
+
+.flodesk-shell [data-ff-el='root'] .ff-6aa3d3ca17d08757cc6d8a16__field {
+  margin-bottom: 1rem !important;
+}
+
+.flodesk-shell [data-ff-el='root'] .ff-6aa3d3ca17d08757cc6d8a16__control {
+  height: 3.5rem !important;
+  border: 1px solid #d9c8b4 !important;
+  border-radius: 0.75rem !important;
+  background: #fffdf9 !important;
+  padding: 1rem !important;
+  font-size: 1rem !important;
+}
+
+.flodesk-shell [data-ff-el='root'] .ff-6aa3d3ca17d08757cc6d8a16__label {
+  padding: 1rem !important;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+  color: #76695e !important;
+}
+
+.flodesk-shell [data-ff-el='root'] .ff-6aa3d3ca17d08757cc6d8a16__button {
+  min-height: 3.5rem !important;
+  border-color: #2c241d !important;
+  border-radius: 9999px !important;
+  background: #2c241d !important;
+  padding: 1rem 1.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.flodesk-shell [data-ff-el='root'] .ff-6aa3d3ca17d08757cc6d8a16__button:hover {
+  background: #17120f !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .flodesk-shell [data-ff-el='root'] .ff-6aa3d3ca17d08757cc6d8a16__form {
+    padding: 1.5rem !important;
+  }
+}
+
 :root {
   --background: #fffdf9;
   --foreground: #2c241d;
