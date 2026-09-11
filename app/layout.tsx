@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
+import Script from 'next/script';
 import { MetaPixel } from '@/components/MetaPixel';
 import './globals.css';
 
@@ -44,6 +45,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${cormorant.variable} ${manrope.variable}`}>
         {children}
         <MetaPixel />
+        <Script id="reset-landing-page-position" strategy="beforeInteractive">
+          {`if (window.location.pathname === '/' && window.location.hash === '#consultation') {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+            window.scrollTo(0, 0);
+          }`}
+        </Script>
       </body>
     </html>
   );
