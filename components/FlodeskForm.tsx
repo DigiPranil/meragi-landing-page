@@ -1,57 +1,32 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-
-const EMBED_PATH = '/flodesk-embed.html';
+import { useEffect, useRef } from 'react';
+import { FLODESK_EMBED_HTML } from '@/components/flodeskEmbedHtml';
 
 export function FlodeskForm() {
   const mountRef = useRef<HTMLDivElement>(null);
-  const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
-    const controller = new AbortController();
     const mount = mountRef.current;
+    if (!mount) return;
 
-    async function loadEmbed() {
-      if (!mount) return;
+    mount.innerHTML = FLODESK_EMBED_HTML;
 
-      try {
-        const response = await fetch(EMBED_PATH, { signal: controller.signal });
-        if (!response.ok) throw new Error(`Unable to load Flodesk form (${response.status})`);
-
-        mount.innerHTML = await response.text();
-
-        // Scripts added through innerHTML do not execute. Replacing each script node
-        // runs Flodesk's supplied loader and form:handle configuration unchanged.
-        mount.querySelectorAll('script').forEach((embeddedScript) => {
-          const executableScript = document.createElement('script');
-          for (const attribute of embeddedScript.attributes) {
-            executableScript.setAttribute(attribute.name, attribute.value);
-          }
-          executableScript.textContent = embeddedScript.textContent;
-          embeddedScript.replaceWith(executableScript);
-        });
-      } catch (error) {
-        if (error instanceof DOMException && error.name === 'AbortError') return;
-        setLoadError(true);
+    // Scripts added through innerHTML do not execute. Replacing each script node
+    // runs Flodesk's supplied loader and form:handle configuration unchanged.
+    mount.querySelectorAll('script').forEach((embeddedScript) => {
+      const executableScript = document.createElement('script');
+      for (const attribute of embeddedScript.attributes) {
+        executableScript.setAttribute(attribute.name, attribute.value);
       }
-    }
-
-    void loadEmbed();
+      executableScript.textContent = embeddedScript.textContent;
+      embeddedScript.replaceWith(executableScript);
+    });
 
     return () => {
-      controller.abort();
-      mount?.replaceChildren();
+      mount.replaceChildren();
     };
   }, []);
-
-  if (loadError) {
-    return (
-      <p role="alert" className="px-6 py-12 text-center text-base text-[#5e4c3c]">
-        The consultation form could not load. Please refresh the page and try again.
-      </p>
-    );
-  }
 
   return (
     <div>
