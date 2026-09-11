@@ -5,7 +5,7 @@ export function Hero() {
     <section className="hero-glow relative overflow-hidden px-4 pb-20 pt-16 text-center sm:pb-28 sm:pt-24">
       <div className="relative z-10 mx-auto max-w-5xl">
         <p className="eyebrow mb-6">Free Wedding Decor Consultation</p>
-        <h1 className="font-heading text-[clamp(2.8rem,8vw,6.4rem)] font-semibold leading-[.92] tracking-[-.04em] text-[#2b2119]">
+        <h1 id="hero" className="scroll-mt-6 font-heading text-[clamp(2.8rem,8vw,6.4rem)] font-semibold leading-[.92] tracking-[-.04em] text-[#2b2119] sm:scroll-mt-8">
           Not Sure What Your Wedding Decor Should Actually Cost or Look Like?{' '}
           <span className="text-primary">Get Real Answers, Free.</span>
         </h1>
