@@ -46,17 +46,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <MetaPixel />
         <Script id="reset-landing-page-position" strategy="beforeInteractive">
-          {`if (window.location.pathname === '/' && (window.location.hash === '' || window.location.hash === '#consultation')) {
-            window.history.replaceState(null, '', window.location.pathname + window.location.search + '#hero');
-            var showHero = function () {
-              var hero = document.getElementById('hero');
-              if (hero) hero.scrollIntoView({ block: 'start' });
-            };
-            if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', showHero, { once: true });
-            } else {
-              window.requestAnimationFrame(showHero);
+          {`if (window.location.pathname === '/') {
+            if ('scrollRestoration' in window.history) {
+              window.history.scrollRestoration = 'manual';
             }
+            if (window.location.hash) {
+              window.history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+            window.scrollTo(0, 0);
+            window.addEventListener('pageshow', function () {
+              window.scrollTo(0, 0);
+            }, { once: true });
           }`}
         </Script>
       </body>
