@@ -9,9 +9,21 @@ export const metadata: Metadata = {
 };
 
 const nextSteps = [
-  "We'll message you on WhatsApp within a few hours to confirm a time",
-  'The call takes about 15 minutes — at a time that works for you',
-  'Come as you are — no need to prepare anything in advance',
+  {
+    label: 'Step 1',
+    title: 'Check your email',
+    description: 'Look for an email from The Meragi Decor with your consultation booking link.',
+  },
+  {
+    label: 'Step 2',
+    title: 'Choose your appointment',
+    description: 'Select a date and time that works for you and choose WhatsApp Call or WhatsApp Message.',
+  },
+  {
+    label: 'Step 3',
+    title: 'Talk with us on WhatsApp',
+    description: 'At your selected time, we’ll contact you on the WhatsApp number you provided.',
+  },
 ];
 
 export default function ThankYouPage() {
@@ -37,12 +49,14 @@ export default function ThankYouPage() {
               </span>
               <p className="eyebrow mt-6">A Personal Note</p>
               <h2 className="font-heading mt-3 max-w-xl text-3xl font-semibold leading-tight text-[#2c241d] sm:text-4xl">
-                Hi, thank you so much for booking your free consultation with us.
+                Hi, thank you for requesting your free wedding decor consultation.
               </h2>
               <div className="mt-7 space-y-5 border-l-2 border-[#c9a777] pl-5 text-sm leading-7 text-[#665446] sm:pl-7 sm:text-base">
-                <p>I know planning a wedding comes with a lot of decisions, and honestly, a lot of uncertainty — especially around decor and budget. That&apos;s exactly why we do these calls.</p>
-                <p>We&apos;ll reach out to you on WhatsApp shortly to confirm a time that works for you. On the call, we&apos;ll talk through your venue, your ideas, and your budget — no pressure, no obligation.</p>
-                <p className="font-semibold text-[#5d3f27]">Looking forward to speaking with you soon.</p>
+                <p>Planning wedding decor can feel confusing — especially when you’re trying to balance your venue, ideas, and budget.</p>
+                <p>That’s exactly why we offer these consultations.</p>
+                <p>We’ve just sent you an email with your appointment booking link. Choose a time that works for you and let us know whether you’d prefer a WhatsApp Call or WhatsApp Message.</p>
+                <p>During your consultation, we can talk through your venue, ideas, budget, or any questions you have — no pressure and no obligation to book with us.</p>
+                <p className="font-semibold text-[#5d3f27]">Looking forward to helping you plan with more clarity.</p>
               </div>
             </div>
             </article>
@@ -50,11 +64,47 @@ export default function ThankYouPage() {
             <MessageCircle aria-hidden="true" className="size-8 text-primary" />
             <h2 className="font-heading mt-5 text-4xl font-semibold">What Happens Next</h2>
             <ul className="mt-7 space-y-5">
-              {nextSteps.map((step) => <li key={step} className="flex items-start gap-3 text-sm leading-6 text-[#55473c] sm:text-base"><span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#f2e5d6] text-primary"><Check aria-hidden="true" className="size-3" /></span>{step}</li>)}
+              {nextSteps.map((step) => (
+                <li key={step.label} className="flex items-start gap-3 text-[#55473c]">
+                  <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#f2e5d6] text-primary">
+                    <Check aria-hidden="true" className="size-3" />
+                  </span>
+                  <div>
+                    <p className="text-[.7rem] font-bold uppercase tracking-[.18em] text-primary">{step.label}</p>
+                    <h3 className="mt-1 text-base font-bold text-[#2c241d] sm:text-lg">{step.title}</h3>
+                    <p className="mt-1 text-sm leading-6 sm:text-base">{step.description}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
-            <p className="mt-8 border-t pt-6 text-sm font-semibold leading-6 text-[#5e4c3c]">While you wait, feel free to check your WhatsApp — we may already be reaching out.</p>
+            <div className="mt-8 border-t border-[#eadbc9] pt-6 text-[#5e4c3c]">
+              <p className="font-bold text-[#2c241d]">Can’t find our email?</p>
+              <p className="mt-2 text-sm leading-6 sm:text-base">Check your Promotions folder. If it’s there, move it to Primary and select “Yes” when Gmail asks if future messages from us should go there.</p>
+            </div>
             </article>
           </div>
+
+          <section className="mt-6 rounded-[2rem] border border-[#dfc8aa] bg-white p-5 shadow-[0_22px_70px_rgba(94,64,38,.09)] sm:p-8 lg:p-10" aria-labelledby="video-heading">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 id="video-heading" className="font-heading text-3xl font-semibold leading-tight text-[#2c241d] sm:text-4xl">
+                Before You Go, Do This 👇
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-[#665446] sm:text-base">
+                Watch this quick video so you don’t miss your appointment link or our future emails.
+              </p>
+            </div>
+            <div className="mx-auto mt-7 aspect-video max-w-4xl overflow-hidden rounded-[1.5rem] border border-[#dfc8aa] bg-[#2c241d] shadow-[0_18px_50px_rgba(44,36,29,.14)] sm:mt-8 sm:rounded-[1.75rem]">
+              <iframe
+                className="size-full"
+                src="https://www.youtube-nocookie.com/embed/e-LpcAdrHZw"
+                title="How to find The Meragi Decor consultation email"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </section>
 
           <section className="mt-6 overflow-hidden rounded-[2rem] bg-[#2c241d] px-6 py-10 text-center text-white shadow-[0_22px_70px_rgba(44,36,29,.16)] sm:px-10 sm:py-12" aria-labelledby="whatsapp-heading">
             <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#f0d4aa] text-[#2c241d]">
